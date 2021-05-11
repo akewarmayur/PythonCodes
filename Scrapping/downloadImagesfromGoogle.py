@@ -18,15 +18,12 @@ driver = webdriver.Firefox(executable_path=path_of_geckodriver)
 # passing site url
 driver.get(site)
 
-# if you just want to download 10-15 images then skip the while loop and just write
-# driver.execute_script("window.scrollBy(0,document.body.scrollHeight)")
 
-
-# below while loop scrolls the webpage 7 times(if available)
-
+# below while loop scrolls the webpage n times(if available)
+n = 4
 i = 0
 
-while i < 4:
+while i < n:
     # for scrolling page
     driver.execute_script("window.scrollBy(0,document.body.scrollHeight)")
 
@@ -56,4 +53,5 @@ for i in img_tags:
         count += 1
         print("Number of images downloaded = " + str(count), end='\r')
     except Exception as e:
+        print(e)
         pass
